@@ -1,5 +1,4 @@
-'''
-10) Data Visualization III
+'''10) Data Visualization III
 Download the Iris flower dataset or any other dataset into a DataFrame. (e.g.,
 https://archive.ics.uci.edu/ml/datasets/Iris ). Scan the dataset and give the inference as:
 1. List down the features and their types (e.g., numeric, nominal) available in the dataset.
