@@ -1,0 +1,23 @@
+1
+docker run -d --name kudu-impala -p 21000:21000 -p 21050:21050 -p 25000:25000 -p 25010:25010 -p 25020:25020 apache/kudu:impala-latest impala
+
+2
+docker exec -it kudu-impala impala-shell
+
+3
+CREATE DATABASE my_database;
+
+4
+USE my_database;
+
+5
+CREATE TABLE users ( id INT,name varchar,age INT );
+
+6
+INSERT INTO users VALUES
+    (1, 'Alice', 30),
+    (2, 'Bob', 35),
+    (3, 'Charlie', 25);
+
+7
+SELECT * FROM users;
