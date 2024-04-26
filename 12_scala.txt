@@ -1,0 +1,28 @@
+$ java -version
+
+     If JAVA is not present then install it by running the following commands : 
+$ sudo apt-get update 
+$ sudo apt-get install default-jdk
+
+Step 2: Once Java is installed, we need to install Scala
+
+	$ sudo apt-get install scala
+$ scala –version
+
+	To check whether the scala is installed successfully or not 
+	scala 
+	println(“Hello World”)
+
+
+/ SCALA PROGRAM TO PRINT HELLO, WORLD!
+// BY USING OBJECT-ORIENTED APPROACH 
+object Hello {
+    def main(args: Array[String]) = {
+        println("Hello, world")
+    }
+}
+
+
+scalac HelloWorld.scala
+
+scala HelloWorld
