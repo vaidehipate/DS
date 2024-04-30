@@ -10,10 +10,13 @@ nltk.download('all')
 
 # Tokenization using NLTK
 from nltk import word_tokenize, sent_tokenize
-sent = "The sun shines brightly in the clear blue sky.Birds chirp melodiously as they flit from tree to tree.The scent of freshly baked bread wafts through the air.Children laugh and play in the green meadow, chasing butterflies.A gentle breeze rustles the leaves, creating a soothing symphony of nature."
-print(word_tokenize(sent))
-print(sent_tokenize(sent))
+text = "The sun shines brightly in the clear blue sky.Birds chirp melodiously as they flit from tree to tree.The scent of freshly baked bread wafts through the air.Children laugh and play in the green meadow, chasing butterflies.A gentle breeze rustles the leaves, creating a soothing symphony of nature."
+sentences = sent_tokenize(text)
+words= word_tokenize(text)
+print(sentences)
+print(words)
 
+#Stemming
 from nltk.stem import PorterStemmer
 
 # create an object of class PorterStemmer
@@ -33,7 +36,21 @@ print(lemmatizer.lemmatize("played", 'v'))
 print(lemmatizer.lemmatize("play", 'v'))
 print(lemmatizer.lemmatize("playing", 'v'))
 
+'''
+So, when you pass 'v' as the second argument to lemmatizer.lemmatize(),
+you're instructing the lemmatiser to treat the input word as a verb and return its base or dictionary form as a verb.
+'''
+
 print(lemmatizer.lemmatize("Communication", 'v'))
+
+'''
+ stemming focuses on removing suffixes to obtain a base form of words,
+ lemmatisation aims to return the base or dictionary form of words, 
+ taking into account their meaning and context.
+ Lemmatisation generally produces more accurate results.
+ '''
+
+#POS Tagging
 
 from nltk import pos_tag
 from nltk import word_tokenize
@@ -42,6 +59,22 @@ text = "The sun shines brightly in the clear blue sky"
 tokenized_text = word_tokenize(text)
 tags = tokens_tag = pos_tag(tokenized_text)
 tags
+
+#Explaination of output of pos tagging:
+'''
+Explanation of the POS tags:
+
+'DT': Determiner (e.g., "the")
+'NN': Noun, singular or mass (e.g., "sun", "sky")
+'VBZ': Verb, 3rd person singular present (e.g., "shines")
+'RB': Adverb (e.g., "brightly")
+'IN': Preposition or subordinating conjunction (e.g., "in")
+'JJ': Adjective (e.g., "clear", "blue")
+
+'''
+
+
+#Stopword removal
 
 from nltk.corpus import stopwords
 
@@ -56,7 +89,7 @@ text = "This is a sentence with, punctuation!"
 clean_text = re.sub(r'[^\w\s]', '', text)
 print(clean_text)
 
-part 2
+#part 2
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
