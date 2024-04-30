@@ -96,10 +96,27 @@ Turning categorical variables into quantitative variables
 
 # categorical variables into quantitative variables
 
+#method1
 data['doornumber'].replace(['two', 'four'],
                         [2, 4], inplace=True)
 
 data[:20]
+
+#method2
+
+# Define numerical values for each category in 'doornumber'
+doornumber_values = {
+    'Two': 2,
+    'Three': 3,
+    'Four': 4,
+    # Add more mappings as needed
+}
+
+# Assign numerical values to the 'doornumber' column
+data['doornumber_encoded'] = data['doornumber'].map(doornumber_values)
+
+# Print the first few rows of the DataFrame with the encoded column
+print(data.head())
 
 
 
