@@ -17,7 +17,6 @@ If variables are not in the correct data type, apply proper type conversions.
 #importing libraries
 
 import pandas as pd
-import matplotlib.pylab as plt
 import numpy as np
 
 2.
