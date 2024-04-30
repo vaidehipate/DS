@@ -45,6 +45,7 @@ print(correlation)
 plt.figure(figsize=(10,7))  #10-width, 7-height
 sns.heatmap(data=ads.corr(),annot=True,center=True,cbar=True)
 plt.plot()
+# The brighter the color, the stronger the correlation. The darker the color, the weaker the correlation
 
 from sklearn import preprocessing
 
@@ -55,7 +56,12 @@ ads1.head(10)
 ads1['Gender'] = label_encoder.fit_transform(ads1['Gender'])
 ads1['Gender'].unique()
 
-#this wont give an eror in jupyter.
+'''
+ LabelEncoder is used to convert categorical variables into numerical labels.
+ads1['Gender'] = label_encoder.fit_transform(ads1['Gender']): This line applies label encoding to the 'Gender' column of the DataFrame ads1.
+It replaces categorical values (e.g., 'Male' and 'Female') with numerical labels (e.g., 0 and 1).
+'''
+
 
 np.where(ads1['Purchased'] == 1)
 
@@ -63,8 +69,8 @@ plt.figure(figsize=(10,7))
 sns.heatmap(data=ads1.corr(),annot=True,center=True,cbar=True)
 plt.plot()
 
-X = ads.iloc[:,[2,3]].values
-y = ads.iloc[:,4].values
+X = ads.iloc[:,[2,3]].values #column 2 & 3 are selected as input variables
+y = ads.iloc[:,4].values  #column 4 is selected as target
 
 
 
