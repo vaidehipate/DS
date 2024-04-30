@@ -95,23 +95,56 @@ classifier.fit(X_train,y_train)
 y_pred = classifier.predict(X_test)
 y_pred
 
-### **CONFUSION MATRIX**
+# **CONFUSION MATRIX**
+'''
+Confusion Matrix: Provides a tabular representation of the classification results
+showing the counts of true positive, true negative, false positive, and false negative predictions.
+True Positives (TP): The number of correctly predicted positive instances.
+False Positives (FP): The number of incorrectly predicted positive instances.
+True Negatives (TN): The number of correctly predicted negative instances.
+False Negatives (FN): The number of incorrectly predicted negative instances.
+Accuracy: The proportion of correctly classified instances among all instances.
+Error Rate: The proportion of incorrectly classified instances among all instances.
+Precision: The proportion of true positive predictions among all positive predictions.
+Recall: The proportion of true positive predictions among all actual positive instances.
+'''
 
-from sklearn.metrics import confusion_matrix,accuracy_score,classification_report
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score
 
-print(f"Confusion Matrix: \n {confusion_matrix(y_test,y_pred)}")
-print(f"Accuracy Score: {accuracy_score(y_test,y_pred)}")
+# Compute confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(cm)
 
-# Plot the confusion matrix using heatmap
-cm = confusion_matrix(y_test,y_pred)
-sns.heatmap(cm,annot=True,xticklabels=['Not Purchased','Purchased'],yticklabels=['Not Purchased','Purchased'])
-plt.ylabel('Prediction')
-plt.xlabel('Actual')
-plt.title("Confusion Matrix")
-plt.show()
+# Extract TP, FP, TN, FN from confusion matrix
+TN, FP, FN, TP = cm.ravel()
 
-# Classification Report for metrics of confusion matrix
-print(f"Confusion Matrix Metrics: \n {classification_report(y_test,y_pred)}")
+'''
+The confusion matrix cm typically looks like this:
 
+[[TN, FP],
+ [FN, TP]]
+After applying ravel(), the array is flattened into a one-dimensional array:
 
+[TN, FP, FN, TP]
+'''
+print("True Negatives (TN):", TN)
+print("False Positives (FP):", FP)
+print("False Negatives (FN):", FN)
+print("True Positives (TP):", TP)
 
+# Compute Accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+# Compute Error Rate
+error_rate = 1 - accuracy
+print("Error Rate:", error_rate)
+
+# Compute Precision
+precision = precision_score(y_test, y_pred)
+print("Precision:", precision)
+
+# Compute Recall
+recall = recall_score(y_test, y_pred)
+print("Recall:", recall)
