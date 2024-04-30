@@ -1,8 +1,6 @@
 '''3) Descriptive Statistics - Measures of Central Tendency and variability
 Perform the following operations on any open source dataset (e.g., data.csv)
 1. Provide summary statistics (mean, median, minimum, maximum, standard deviation) for a
-Curriculum for Third Year of Artificial Intelligence and Data Science (2019 Course), Savitribai Phule Pune University
-http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2022/Forms/AllItems.aspx #84/105
 dataset (age, income etc.) with numeric variables grouped by one of the qualitative
 (categorical) variable. For example, if your categorical variable is age groups and quantitative
 variable is income, then provide summary statistics of income grouped by the age groups.
@@ -36,11 +34,20 @@ mean_values = iris_numeric.mean()
 
 print("Mean values:")
 print(mean_values)
+'''
 
 
 # Median
 median_value = np.median(df['sepal_length'])
 print(f"Median: {median_value}")
+
+#mode
+'''
+The mode() function calculates the mode, which is the value that appears most frequently in a dataset.
+Unlike mean and median, mode may not always exist or may not be unique.
+If there is a single mode (i.e., one value appears most frequently), mode() returns that value.
+If there are multiple modes (i.e., multiple values with the same highest frequency), mode() raises a StatisticsError.
+    '''
 
 try:
     mode_value = mode(df['sepal_length'])
@@ -64,8 +71,9 @@ print(df.mode())
 mid_range = (max(df['sepal_length']) + min(df['sepal_length'])) / 2
 print(f"Mid-Range: {mid_range}")
 
-
+#groupby
 df.groupby(['sepal_length']).mean()
+
 #if this didnt worked out , use this . above code will work out on jupyter
 '''
 df_numeric = df[pd.to_numeric(df['sepal_length'], errors='coerce').notnull()]
@@ -75,11 +83,12 @@ df_numeric['sepal_length'] = pd.to_numeric(df_numeric['sepal_length'])
 
 # Calculate the mean of 'sepal_length'
 mean_sepal_length = df_numeric['sepal_length'].mean()
+'''
 
 df.groupby(['sepal_length']).count()
 
 
-
+#Quantiles:
 
 # calculate the quartiles (25th, 50th and 75th percentiles)
 quartiles = df['sepal_length'].quantile([0.25, 0.5, 0.75])
@@ -101,7 +110,7 @@ print("\n")
 #using builtin function
 
 df.std()
-df.std()
+df.var()
 
 ##if this didnt worked out , use this . above code will work out on jupyter
 '''
@@ -117,7 +126,7 @@ print("Variance:")
 print(variance)
 print("\nStandard Deviation:")
 print(std_deviation)
-
+'''
 
 # Calculating mean without using libraries
 math_s = df['sepal_length']
@@ -143,7 +152,17 @@ def my_mode(math_s):
     return [k for k, v in c.items() if v == c.most_common(1)[0][1]]
 print("Mode : ",my_mode(math_s))
 
-# Calculating Standard without using libraries
+'''Explaination:
+c.items(): This part of the code retrieves a list of (key, value) pairs from the Counter object c. Each key represents an element in the input list math_s, and its corresponding value represents the count of occurrences of that element.
+for k, v in c.items(): This part of the code iterates over each (key, value) pair in the list obtained from c.items(). Here, k represents the element (key), and v represents the count (value).
+if v == c.most_common(1)[0][1]: This part of the code checks if the count v is equal to the count of the most common element in the list.
+c.most_common(1) retrieves a list of the most common element(s) and their counts from the Counter object c.
+[0] accesses the first element in this list.
+[1] accesses the count associated with that element.
+'''
+
+
+# Calculating Standard deviation and variation without using libraries
 
 import math
 
