@@ -86,8 +86,8 @@ data.dtypes
 
 #Applying type conversion
 
-data = data.astype({"make":'category',"curbweight":'float64'})
-data.info()
+data = data.astype({'make':'category',"curbweight":'float64'})
+data['curbweight'].info()
 
 #displays first 20 rows
 
