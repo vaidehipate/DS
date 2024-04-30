@@ -46,9 +46,8 @@ df=pd.DataFrame(data)
 
 #Adding null values inside the dataset
 
-df.loc[df['Absenteeism'] == 1, 'English_Score'] = np.nan
-df.loc[df['Absenteeism'] == 1, 'Physics_Score'] = np.nan
-df.loc[df['Absenteeism'] == 1, 'Math_Score'] = np.nan
+df.loc[df['Absenteeism'] == 1, ['English_Score', 'Physics_Score', 'Math_Score']] = np.nan
+
 
 print(df)
 
@@ -77,11 +76,7 @@ df.boxplot(column=["Physics_Score", "Math_Score"])
 newdf = df[df["Physics_Score"]>55.0]
 newdf.boxplot("Physics_Score")
 
-df.loc[df['Absenteeism'] == 1, 'Physics_Score'] = np.nan
-print(df)
-
-df['Physics_Score'].fillna(df['Physics_Score'].median(), inplace=True)
-print(df)
+#...
 
 fig, ax = plt.subplots(figsize=(6, 4))
 ax.scatter(df['Age'], df['English_Score'])
@@ -123,7 +118,6 @@ print(df)
 
 
 
-67.833333**0.5
 
 from scipy.stats import skew
 
