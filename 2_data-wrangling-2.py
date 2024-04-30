@@ -88,10 +88,6 @@ ax.set_xlabel('(Age)')
 ax.set_ylabel('(English scores )')
 plt.show()
 
-sns.boxplot(df['Math_Score'])
-
-
-sns.boxplot(df['Physics_Score'])
 
 
 # Calculate the upper and lower limits
@@ -112,9 +108,6 @@ df.drop(index=lower_array, inplace=True)
 # Print the new shape of the DataFrame
 print("New Shape: ", df.shape)
 
-sns.boxplot(df['Physics_Score'])
-
-print(df)
 
 
 
