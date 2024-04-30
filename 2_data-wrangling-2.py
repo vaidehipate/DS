@@ -141,10 +141,9 @@ transformed_skewness = skew(transformed_data)
 print("Original Skewness:", original_skewness)
 print("Transformed Skewness:", transformed_skewness)
 
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.stats import boxcox, skew, norm
-import seaborn as sns
+
+from scipy.stats import boxcox, skew
+
 
 # Generating a skewed dataset
 np.random.seed(42)
