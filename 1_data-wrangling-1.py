@@ -52,6 +52,7 @@ data.isnull()
 #missing values count
 
 data.isnull().sum()
+data.isnull().count()
 
 #check the value is not null
 
@@ -60,6 +61,7 @@ data.notnull()
 #count the not null values
 
 data.notnull().sum()
+data.notnull().count()
 
 5.
 Data Formatting and Data Normalization
