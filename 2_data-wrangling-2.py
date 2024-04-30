@@ -16,6 +16,15 @@ the skewness and convert the distribution into a normal distribution.'''
 import pandas as pd
 import numpy as np
 from scipy import stats
+import seaborn as sns
+import matplotlib.pyplot as plt
+import sklearn
+
+
+
+
+import warnings 
+warnings.filterwarnings('ignore')
 
 #using random creating dataset values
 
@@ -54,10 +63,8 @@ print(df)
 
 # showing outliers using boxplot for columns 1.) using seaborn
 
-import seaborn as sns
 sns.boxplot(df['Age'])
 
-import seaborn as sns
 sns.boxplot(df['English_Score'])
 
 # showing outliers using boxplot for columns 2.) using pandas
@@ -76,7 +83,6 @@ print(df)
 df['Physics_Score'].fillna(df['Physics_Score'].median(), inplace=True)
 print(df)
 
-import matplotlib.pyplot as plt
 fig, ax = plt.subplots(figsize=(6, 4))
 ax.scatter(df['Age'], df['English_Score'])
 
@@ -92,7 +98,6 @@ sns.boxplot(df['Math_Score'])
 
 sns.boxplot(df['Physics_Score'])
 
-import sklearn
 
 # Calculate the upper and lower limits
 Q1 = df['Math_Score'].quantile(0.25)
