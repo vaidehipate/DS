@@ -57,7 +57,7 @@ from nltk import word_tokenize
 
 text = "The sun shines brightly in the clear blue sky"
 tokenized_text = word_tokenize(text)
-tags = tokens_tag = pos_tag(tokenized_text)
+tags = pos_tag(tokenized_text)
 tags
 
 #Explaination of output of pos tagging:
