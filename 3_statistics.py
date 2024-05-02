@@ -19,29 +19,17 @@ df = pd.read_csv("/content/iris.csv")
 
 df.head()
 
-#Mean
+# Mean
 
 Mean =np.mean(df)
 print(f"Mean :{Mean}")
-
-#if this didnt worked out , use this . above code will work out on jupyter
-'''
-# Replace non-numeric values with NaN
-iris_numeric = df.apply(pd.to_numeric, errors='coerce')
-
-# Calculate the mean of each numerical column
-mean_values = iris_numeric.mean()
-
-print("Mean values:")
-print(mean_values)
-'''
 
 
 # Median
 median_value = np.median(df['sepal_length'])
 print(f"Median: {median_value}")
 
-#mode
+# mode
 '''
 The mode() function calculates the mode, which is the value that appears most frequently in a dataset.
 Unlike mean and median, mode may not always exist or may not be unique.
@@ -68,24 +56,18 @@ print(minm)
 print(df.mode())
 
 # Mid-Range
-mid_range = (max(df['sepal_length']) + min(df['sepal_length'])) / 2
+mid_range = (maxm + minm) / 2
 print(f"Mid-Range: {mid_range}")
 
 #groupby
 df.groupby(['sepal_length']).mean()
-
-#if this didnt worked out , use this . above code will work out on jupyter
-'''
-df_numeric = df[pd.to_numeric(df['sepal_length'], errors='coerce').notnull()]
-
-# Convert 'sepal_length' column to numeric
-df_numeric['sepal_length'] = pd.to_numeric(df_numeric['sepal_length'])
-
-# Calculate the mean of 'sepal_length'
-mean_sepal_length = df_numeric['sepal_length'].mean()
-'''
-
 df.groupby(['sepal_length']).count()
+
+# Summary statistics of income grouped by age groups
+summary_stats = df.groupby('sepal_length')['petal_length'].describe()
+
+# Create a list with numeric values for each response to the categorical variable
+sepal_length_numeric = list(range(1, len(df) + 1))
 
 
 #Quantiles:
@@ -112,38 +94,21 @@ print("\n")
 df.std()
 df.var()
 
-##if this didnt worked out , use this . above code will work out on jupyter
-'''
-# Assuming df is your DataFrame
-# Convert all columns to numeric (errors='coerce' will convert non-numeric values to NaN)
-df_numeric = df.apply(pd.to_numeric, errors='coerce')
-
-# Calculate variance and standard deviation
-variance = df_numeric.var()
-std_deviation = df_numeric.std()
-
-print("Variance:")
-print(variance)
-print("\nStandard Deviation:")
-print(std_deviation)
-'''
-
 # Calculating mean without using libraries
 math_s = df['sepal_length']
 def my_mean(math_s):
     return sum(math_s) / len(math_s)
 print("mean : ",my_mean(math_s))
 
-# Calculating median without using libraries
 def my_median(math_s):
-    n = len(math_s)
+    sorted_math_s = sorted(math_s)
+    n = len(sorted_math_s)
     index = n // 2
     # Sample with an odd number of observations
     if n % 2:
-        return sorted(math_s)[index]
+        return sorted_math_s[index]
     # Sample with an even number of observations
-    return sum(sorted(math_s)[index - 1:index + 1]) / 2
-print("median : ",my_median(math_s))
+    return (sorted_math_s[index - 1] + sorted_math_s[index]) / 2
 
 # Calculating mode without using libraries
 from collections import Counter
