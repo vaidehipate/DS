@@ -84,11 +84,20 @@ text = "This is an example sentence demonstrating stop word removal."
 filtered_text = [word for word in word_tokenize(text) if word.lower() not in stop_words]
 print(filtered_text)
 
-import re
+import re       #re stands for regular expressions
 
 text = "This is a sentence with, punctuation!"
 clean_text = re.sub(r'[^\w\s]', '', text)
 print(clean_text)
+
+'''
+The pattern to search for: r'[^\w\s]'
+r before the pattern denotes a raw string.
+[^\w\s] is a regular expression pattern that matches any character that is not a word character
+(\w, which includes letters, digits, and underscores) or whitespace (\s).
+The replacement string: '' (an empty string), indicating that the matched characters should be replaced with nothing.
+The text to search within: text
+'''
 
 #part 2
 
