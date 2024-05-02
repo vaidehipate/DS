@@ -10,7 +10,12 @@ nltk.download('all')
 
 # Tokenization using NLTK
 from nltk import word_tokenize, sent_tokenize
-text = "The sun shines brightly in the clear blue sky.Birds chirp melodiously as they flit from tree to tree.The scent of freshly baked bread wafts through the air.Children laugh and play in the green meadow, chasing butterflies.A gentle breeze rustles the leaves, creating a soothing symphony of nature."
+text = '''The sun shines brightly in the clear blue sky.
+Birds chirp melodiously as they flit from tree to tree.
+The scent of freshly baked bread wafts through the air.
+Children laugh and play in the green meadow, chasing butterflies.
+A gentle breeze rustles the leaves, creating a soothing symphony of nature.
+'''
 sentences = sent_tokenize(text)
 words= word_tokenize(text)
 print(sentences)
@@ -38,7 +43,8 @@ print(lemmatizer.lemmatize("playing", 'v'))
 
 '''
 So, when you pass 'v' as the second argument to lemmatizer.lemmatize(),
-you're instructing the lemmatiser to treat the input word as a verb and return its base or dictionary form as a verb.
+you're instructing the lemmatiser to treat the input word as a verb
+and return its base or dictionary form as a verb.
 '''
 
 print(lemmatizer.lemmatize("Communication", 'v'))
