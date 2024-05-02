@@ -9,9 +9,17 @@ Step 2: Once Java is installed, we need to install Scala
 	$ sudo apt-get install scala
 $ scala –version
 
+
+
 	To check whether the scala is installed successfully or not 
 	scala 
 	println(“Hello World”)
+
+
+--folder create
+==new terminal
+
+   touch file.scala
 
 
 / SCALA PROGRAM TO PRINT HELLO, WORLD!
