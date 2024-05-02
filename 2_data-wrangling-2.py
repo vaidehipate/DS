@@ -53,7 +53,7 @@ print(df)
 
 
 
-#filling / replacing null values with mean , median
+#filling / replacing null values with mean , median (imputation)
 
 df['Math_Score'].fillna(df['Math_Score'].mean(), inplace=True)
 df['English_Score'].fillna(df['English_Score'].median(), inplace=True)
