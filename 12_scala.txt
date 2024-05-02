@@ -33,4 +33,4 @@ object Hello {
 
 scalac HelloWorld.scala
 
-scala HelloWorld
+scala Hello
