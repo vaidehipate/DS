@@ -24,7 +24,7 @@ import numpy as np
 
 data = pd.read_csv("/content/AutoData.csv")
 
-3.lOAD dataset 
+3.data preprocessing
 #displays first 5 rows
 
 data.head()
@@ -34,7 +34,7 @@ data.head()
 data.tail(5)
 
 
-4. DATA PREPROCESSING
+
 #display info about data colmns
 
 data.info()
@@ -44,7 +44,7 @@ data.info()
 data.describe()
 
 
-#finding missing values
+4.finding missing values
 
 data.isnull()
 
